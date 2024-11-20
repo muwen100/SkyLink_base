@@ -23,6 +23,28 @@
             <RowDefinition Height="26"/>
         </Grid.RowDefinitions>
         
+        <!-- Menu po lewej stronie -->
+        <StackPanel  Width="230" Orientation="Vertical" HorizontalAlignment="Left" Background="AliceBlue">
+            <Menu Height="480" Background="Transparent" Margin="0,40,0,0">
+                <Menu.ItemsPanel >
+                    <ItemsPanelTemplate>
+                        <VirtualizingStackPanel Orientation="Vertical"/>
+                    </ItemsPanelTemplate>
+                </Menu.ItemsPanel>
+                <MenuItem  Header="Aktualna Pogoda"/>
+                <MenuItem  Header="Oś Czasu"/>
+                <MenuItem  Header="Wykresy"/>
+                <MenuItem  Header="Trendy"/>
+                <MenuItem  Header="Opcje"/>
+            </Menu>
+        </StackPanel>
+
+        <!-- Główna zawartość -->
+        <Grid Grid.Row="0">
+            <!-- Tutaj dodaj inne elementy zawartości aplikacji -->
+        </Grid>
+
+        <!-- StatusBar na dole -->
         <StatusBar Grid.Row="1">
             <StatusBarItem FontSize="16 ">Godzina</StatusBarItem>
             <StatusBarItem FontSize="16">
