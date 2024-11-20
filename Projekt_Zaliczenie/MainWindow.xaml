@@ -11,42 +11,72 @@
         Icon="/Images/logo.ico"
         ResizeMode="CanResizeWithGrip"
         GlowBrush="{DynamicResource MahApps.Brushes.Accent}"
-                 BorderThickness="2"
-                 >
+        BorderThickness="2">
 
-        
-       
     <Grid>
         <Grid.RowDefinitions>
-            
             <RowDefinition Height="*"/>
+            <!-- Główna zawartość -->
             <RowDefinition Height="26"/>
+            <!-- StatusBar -->
         </Grid.RowDefinitions>
-        
-        <!-- Menu po lewej stronie -->
-        <StackPanel  Width="230" Orientation="Vertical" HorizontalAlignment="Left" Background="AliceBlue">
-            <Menu Height="480" Background="Transparent" Margin="0,40,0,0">
-                <Menu.ItemsPanel >
+
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="180"/>
+            <!-- Szerokość menu -->
+            <ColumnDefinition Width="*"/>
+            <!-- Szerokość głównej zawartości -->
+        </Grid.ColumnDefinitions>
+
+        <!-- Lewa nawigacja (Menu) -->
+        <StackPanel Grid.Column="0" Width="180" Orientation="Vertical" HorizontalAlignment="Left" Background="AliceBlue">
+            <Grid Height="50" VerticalAlignment="Top" Margin="0,30,0,0">
+                <TextBlock Text="SkyLink" FontSize="25" VerticalAlignment="Center" HorizontalAlignment="Center" FontFamily="Lucida Console"/>
+            </Grid>
+
+            <Menu Height="480" Background="Transparent" Margin="0,15,0,0">
+                <Menu.ItemsPanel>
                     <ItemsPanelTemplate>
                         <VirtualizingStackPanel Orientation="Vertical"/>
                     </ItemsPanelTemplate>
                 </Menu.ItemsPanel>
-                <MenuItem  Header="Aktualna Pogoda"/>
-                <MenuItem  Header="Oś Czasu"/>
-                <MenuItem  Header="Wykresy"/>
-                <MenuItem  Header="Trendy"/>
-                <MenuItem  Header="Opcje"/>
+
+                <MenuItem Header="Aktualna Pogoda" HorizontalContentAlignment="Center" Background="#99FFFFFF" Click="AktualnaPogoda_Click">
+                    <MenuItem.Icon>
+                        <Image Source="/Images/Aktualna_Pogoda.png" Height="50" Stretch="Uniform" HorizontalAlignment="Left"/>
+                    </MenuItem.Icon>
+                </MenuItem>
+                <MenuItem Header="Oś Czasu" HorizontalContentAlignment="Center" Background="#99FFFFFF" Click="OsCzasu_Click">
+                    <MenuItem.Icon>
+                        <Image Source="/Images/Os_czasu.png" Height="50" Stretch="Uniform" HorizontalAlignment="Left"/>
+                    </MenuItem.Icon>
+                </MenuItem>
+                <MenuItem Header="Wykresy" HorizontalContentAlignment="Center" Background="#99FFFFFF" Click="Wykresy_Click">
+                    <MenuItem.Icon>
+                        <Image Source="/Images/Wykresy.png" Height="50" Stretch="Uniform" HorizontalAlignment="Left"/>
+                    </MenuItem.Icon>
+                </MenuItem>
+                <MenuItem Header="Trendy" HorizontalContentAlignment="Center" Background="#99FFFFFF" Click="Trendy_Click">
+                    <MenuItem.Icon>
+                        <Image Source="/Images/Trendy.png" Height="50" Stretch="Uniform" HorizontalAlignment="Left"/>
+                    </MenuItem.Icon>
+                </MenuItem>
+                <MenuItem Header="Opcje" HorizontalContentAlignment="Center" Background="#99FFFFFF" Click="Opcje_Click">
+                    <MenuItem.Icon>
+                        <Image Source="/Images/Opcje.png" Height="50" Stretch="Uniform" HorizontalAlignment="Left"/>
+                    </MenuItem.Icon>
+                </MenuItem>
             </Menu>
         </StackPanel>
 
         <!-- Główna zawartość -->
-        <Grid Grid.Row="0">
-            <!-- Tutaj dodaj inne elementy zawartości aplikacji -->
+        <Grid Grid.Column="1" Grid.Row="0" x:Name="ContentArea">
+            <ContentControl x:Name="MainContent" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" />
         </Grid>
 
         <!-- StatusBar na dole -->
-        <StatusBar Grid.Row="1">
-            <StatusBarItem FontSize="16 ">Godzina</StatusBarItem>
+        <StatusBar Grid.Row="1" Grid.ColumnSpan="2">
+            <StatusBarItem FontSize="16">Godzina</StatusBarItem>
             <StatusBarItem FontSize="16">
                 <TextBlock Text="{Binding Godzina}"/>
             </StatusBarItem>
@@ -54,5 +84,6 @@
                 <TextBlock Text="{Binding Data}"/>
             </StatusBarItem>
         </StatusBar>
+
     </Grid>
 </mah:MetroWindow>

@@ -53,6 +53,7 @@ namespace Projekt_Zaliczenie
             Timer timer = new Timer(1000); // Tworzy obiekt klasy Timer z okresem 1000ms tj 1 sekunda 
             timer.Elapsed += Timer_Elapsed;
             timer.Start();  //start timera
+            MainContent.Content = new AktualnaPogodaUserControl1();
 
         }
 
@@ -75,9 +76,31 @@ namespace Projekt_Zaliczenie
             PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(propertyName));  //informowanie systemu o zmianie godziny 
         }
 
-        private void ComboBox_SelectionChanged(object sender, SelectionChangedEventArgs e)
+      
+
+        private void AktualnaPogoda_Click(object sender, RoutedEventArgs e)
         {
+            MainContent.Content = new AktualnaPogodaUserControl1();
         }
-    
+
+        private void OsCzasu_Click(object sender, RoutedEventArgs e)
+        {
+            MainContent.Content = new OsCzasuUserControl1();
+        }
+
+        private void Wykresy_Click(object sender, RoutedEventArgs e)
+        {
+            MainContent.Content = new WykresyUserControl1();
+        }
+
+        private void Trendy_Click(object sender, RoutedEventArgs e)
+        {
+            MainContent.Content = new TrendyUserControl1();
+        }
+
+        private void Opcje_Click(object sender, RoutedEventArgs e)
+        {
+            MainContent.Content = new OpcjeUserControl1();
+        }
     }
 }
