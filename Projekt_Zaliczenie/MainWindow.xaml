@@ -7,7 +7,7 @@
         xmlns:mah="clr-namespace:MahApps.Metro.Controls;assembly=MahApps.Metro"
         mc:Ignorable="d"
         Title="SkyLink" Height="450" Width="800"
-        MinHeight="410" MinWidth="550"
+        MinHeight="410" MinWidth="670"
         TitleCharacterCasing="Normal"
         Icon="/Images/logo.ico"
         ResizeMode="CanResizeWithGrip"

@@ -7,7 +7,12 @@
              mc:Ignorable="d" 
              d:DesignHeight="450" d:DesignWidth="800">
     <Grid x:Name="background" Background="White">
-
+        <!--
+        Grid 0,0 to Temperatura
+        Grid 0,1 to Ciśnienie
+        Grid 1 0 to Wilgotność
+        Grid 1,1 to Jakość Powietrza
+        -->
         <Grid.RowDefinitions>
             <RowDefinition Height="1*"/>
             <RowDefinition Height="1*"/>
