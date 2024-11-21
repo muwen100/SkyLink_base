@@ -7,6 +7,7 @@
         xmlns:mah="clr-namespace:MahApps.Metro.Controls;assembly=MahApps.Metro"
         mc:Ignorable="d"
         Title="SkyLink" Height="450" Width="800"
+        MinHeight="410" MinWidth="550"
         TitleCharacterCasing="Normal"
         Icon="/Images/logo.ico"
         ResizeMode="CanResizeWithGrip"
@@ -29,9 +30,21 @@
         </Grid.ColumnDefinitions>
 
         <!-- Lewa nawigacja (Menu) -->
-        <StackPanel Grid.Column="0" Width="180" Orientation="Vertical" HorizontalAlignment="Left" Background="AliceBlue">
-            <Grid Height="50" VerticalAlignment="Top" Margin="0,30,0,0">
-                <TextBlock Text="SkyLink" FontSize="25" VerticalAlignment="Center" HorizontalAlignment="Center" FontFamily="Lucida Console"/>
+        <StackPanel Grid.Column="0"
+                    Width="180"
+                    Orientation="Vertical"
+                    HorizontalAlignment="Left"
+                    Background="AliceBlue">
+
+            <Grid Height="50"
+                  VerticalAlignment="Top"
+                  Margin="0,30,0,0">
+                
+                <TextBlock Text="SkyLink"
+                           FontSize="25"
+                           VerticalAlignment="Center"
+                           HorizontalAlignment="Center"
+                           FontFamily="Lucida Console"/>
             </Grid>
 
             <Menu Height="480" Background="Transparent" Margin="0,15,0,0">
@@ -40,42 +53,78 @@
                         <VirtualizingStackPanel Orientation="Vertical"/>
                     </ItemsPanelTemplate>
                 </Menu.ItemsPanel>
+                
+                <!--Menu aktualnej pogody-->
+                <MenuItem Header="Aktualna Pogoda"
+                          HorizontalContentAlignment="Center"
+                          Background="#99FFFFFF"
+                          Click="AktualnaPogoda_Click">
+                    <MenuItem.Icon>
+                        <Image Source="/Images/Aktualna_Pogoda.png"
+                               Height="50" Stretch="Uniform"
+                               HorizontalAlignment="Left"/>
+                    </MenuItem.Icon>
+                </MenuItem>
 
-                <MenuItem Header="Aktualna Pogoda" HorizontalContentAlignment="Center" Background="#99FFFFFF" Click="AktualnaPogoda_Click">
+                <!--Menu osi czasu-->
+                <MenuItem Header="Oś Czasu"
+                          HorizontalContentAlignment="Center"
+                          Background="#99FFFFFF"
+                          Click="OsCzasu_Click">
                     <MenuItem.Icon>
-                        <Image Source="/Images/Aktualna_Pogoda.png" Height="50" Stretch="Uniform" HorizontalAlignment="Left"/>
+                        <Image Source="/Images/Os_czasu.png"
+                               Height="50" Stretch="Uniform"
+                               HorizontalAlignment="Left"/>
                     </MenuItem.Icon>
                 </MenuItem>
-                <MenuItem Header="Oś Czasu" HorizontalContentAlignment="Center" Background="#99FFFFFF" Click="OsCzasu_Click">
+                <!--Menu wykresów-->
+                <MenuItem Header="Wykresy"
+                          HorizontalContentAlignment="Center"
+                          Background="#99FFFFFF"
+                          Click="Wykresy_Click">
                     <MenuItem.Icon>
-                        <Image Source="/Images/Os_czasu.png" Height="50" Stretch="Uniform" HorizontalAlignment="Left"/>
+                        <Image Source="/Images/Wykresy.png"
+                               Height="50" Stretch="Uniform" 
+                               HorizontalAlignment="Left"/>
                     </MenuItem.Icon>
                 </MenuItem>
-                <MenuItem Header="Wykresy" HorizontalContentAlignment="Center" Background="#99FFFFFF" Click="Wykresy_Click">
+                <!--Menu trendów-->
+                <MenuItem Header="Trendy"
+                          HorizontalContentAlignment="Center"
+                          Background="#99FFFFFF"
+                          Click="Trendy_Click">
                     <MenuItem.Icon>
-                        <Image Source="/Images/Wykresy.png" Height="50" Stretch="Uniform" HorizontalAlignment="Left"/>
+                        <Image Source="/Images/Trendy.png"
+                               Height="50" Stretch="Uniform"
+                               HorizontalAlignment="Left"/>
                     </MenuItem.Icon>
                 </MenuItem>
-                <MenuItem Header="Trendy" HorizontalContentAlignment="Center" Background="#99FFFFFF" Click="Trendy_Click">
+                <!--Menu opcji-->
+                <MenuItem Header="Opcje"
+                          HorizontalContentAlignment="Center"
+                          Background="#99FFFFFF"
+                          Click="Opcje_Click">
                     <MenuItem.Icon>
-                        <Image Source="/Images/Trendy.png" Height="50" Stretch="Uniform" HorizontalAlignment="Left"/>
-                    </MenuItem.Icon>
-                </MenuItem>
-                <MenuItem Header="Opcje" HorizontalContentAlignment="Center" Background="#99FFFFFF" Click="Opcje_Click">
-                    <MenuItem.Icon>
-                        <Image Source="/Images/Opcje.png" Height="50" Stretch="Uniform" HorizontalAlignment="Left"/>
+                        <Image Source="/Images/Opcje.png"
+                               Height="50" Stretch="Uniform"
+                               HorizontalAlignment="Left"/>
                     </MenuItem.Icon>
                 </MenuItem>
             </Menu>
 
-
         </StackPanel>
-
+        
+        
         <!-- Główna zawartość -->
-        <Grid Grid.Column="1" Grid.Row="0" x:Name="ContentArea">
-            <ContentControl x:Name="MainContent" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" />
+        <Grid Grid.Column="1"
+              Grid.Row="0" x:Name="ContentArea">
+            
+            <ContentControl x:Name="MainContent"
+                            HorizontalAlignment="Stretch"
+                            VerticalAlignment="Stretch" />
         </Grid>
 
+        
         <!-- StatusBar na dole -->
         <StatusBar Grid.Row="1" Grid.ColumnSpan="2">
             <StatusBarItem FontSize="16">Godzina</StatusBarItem>

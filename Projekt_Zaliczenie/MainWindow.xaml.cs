@@ -59,7 +59,7 @@ namespace Projekt_Zaliczenie
 
         private void Timer_Elapsed(object sender, ElapsedEventArgs e) //to jest ta metoda wywolywana przez timer co sekunde 
         {
-            Application.Current.Dispatcher.Invoke(() =>      // umożliwia wykonanie kodu w głównym wątku, był problem bo timer działa w osobnym
+            Dispatcher.Invoke(() =>      // umożliwia wykonanie kodu w głównym wątku, był problem bo timer działa w osobnym
             {
                 DateTime teraz = DateTime.Now;          //pobiera aktualna date i czas
                 Godzina = teraz.ToString("HH:mm:ss");   //formatowanie do pożądanej postaci
