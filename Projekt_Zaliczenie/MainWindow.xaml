@@ -67,6 +67,8 @@
                     </MenuItem.Icon>
                 </MenuItem>
             </Menu>
+
+
         </StackPanel>
 
         <!-- Główna zawartość -->
