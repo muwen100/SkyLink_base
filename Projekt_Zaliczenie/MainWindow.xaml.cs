@@ -45,6 +45,8 @@ namespace Projekt_Zaliczenie
             }
         }
 
+
+
         public MainWindow()
         {
             InitializeComponent();
@@ -57,15 +59,15 @@ namespace Projekt_Zaliczenie
 
         }
 
-        private void Timer_Elapsed(object sender, ElapsedEventArgs e) //to jest ta metoda wywolywana przez timer co sekunde 
+        private void Timer_Elapsed(object sender, ElapsedEventArgs e)
         {
-            Dispatcher.Invoke(() =>      // umożliwia wykonanie kodu w głównym wątku, był problem bo timer działa w osobnym
+            Dispatcher.BeginInvoke(new Action(() =>
             {
-                DateTime teraz = DateTime.Now;          //pobiera aktualna date i czas
-                Godzina = teraz.ToString("HH:mm:ss");   //formatowanie do pożądanej postaci
-                Data = teraz.ToString("d");    // jw
+                DateTime teraz = DateTime.Now;
+                Godzina = teraz.ToString("HH:mm:ss");
+                Data = teraz.ToString("d");
                 Data = Data + "  ";
-            });
+            }));
         }
 
 
