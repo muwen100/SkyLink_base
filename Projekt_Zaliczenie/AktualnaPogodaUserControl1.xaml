@@ -26,8 +26,8 @@
         </Grid.ColumnDefinitions>
 
         <!-- Pasek z guzikiem -->
-        <StackPanel Grid.Row="0" Grid.ColumnSpan="2" Orientation="Horizontal" HorizontalAlignment="Right" Margin="10">
-            <Button Content="Odśwież" Click="Button_Click_1" Margin="5"/>
+        <StackPanel Grid.Row="0" Grid.ColumnSpan="2" Orientation="Horizontal" HorizontalAlignment="Left" Margin="10">
+            <Button Content="Odśwież" Click="Button_Click_1"/>
         </StackPanel>
 
         <Rectangle Grid.Row="1"
@@ -70,13 +70,13 @@
                    HorizontalAlignment="Center"
                    VerticalAlignment="Top"
                    FontSize="24"
-                   Margin="0,10,0,0"><Run Text="Temperatura"/><Run Language="pl-pl" Text=" wewnątrz"/></TextBlock>
+                   Margin="0,10,0,0"><Run Text="Temperatura"/><Run Text=" wewnątrz"/><Run Language="pl-pl" Text="na"/></TextBlock>
 
         <TextBlock Grid.Row="2" Grid.Column="0"
                    HorizontalAlignment="Center"
                    FontSize="24"
                    VerticalAlignment="Top"
-                   Margin="0,10,0,0" Text="Temperatura na zewnątrz"/>
+                   Margin="0,10,0,0"><Run Text="Temperatura zewnątrz"/><Run Language="pl-pl" Text="na"/></TextBlock>
 
         <TextBlock Grid.Row="1" Grid.Column="1"
                    HorizontalAlignment="Center"
@@ -121,5 +121,6 @@
        HorizontalAlignment="Center"
       VerticalAlignment="Center"
       />
+        <TextBlock x:Name="DateTextBox" Margin="80,13,0,9" TextWrapping="Wrap" Text="data" HorizontalAlignment="Left" Width="120" FontSize="14" Height="25"/>
     </Grid>
 </UserControl>

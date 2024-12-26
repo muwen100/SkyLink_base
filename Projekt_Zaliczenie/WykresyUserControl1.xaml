@@ -4,10 +4,26 @@
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
              xmlns:local="clr-namespace:Projekt_Zaliczenie"
+             xmlns:lvc="clr-namespace:LiveCharts.Wpf;assembly=LiveCharts.Wpf"
              mc:Ignorable="d" 
              d:DesignHeight="450" d:DesignWidth="800"
              Background="White">
     <Grid>
-        <TextBlock Text="Wykresy" HorizontalAlignment="Center" VerticalAlignment="Center" FontSize="30"/>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="*"/>
+        </Grid.RowDefinitions>
+        
+        <StackPanel Orientation="Horizontal" Margin="10">
+            <TextBlock Text="Wybierz kategorię: " VerticalAlignment="Center" Margin="0,0,10,0"/>
+            <ComboBox x:Name="CategoryComboBox" SelectionChanged="CategoryComboBox_SelectionChanged" Width="200">
+                <ComboBoxItem Content="Temperatura wewnętrzna" />
+                <ComboBoxItem Content="Temperatura zewnętrzna" />
+                <ComboBoxItem Content="Wilgotność" />
+                <ComboBoxItem Content="Ciśnienie" />
+            </ComboBox>
+        </StackPanel>
+        
+        <lvc:CartesianChart x:Name="WeatherChart" Grid.Row="1" Margin="10"/>
     </Grid>
 </UserControl>

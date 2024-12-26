@@ -18,7 +18,7 @@ namespace Projekt_Zaliczenie
 
         public async void LoadWeatherData()
         {
-            string query = "SELECT temperature_inside, temperature_outside, humidity, pressure FROM Last24Hours ORDER BY timestamp DESC LIMIT 1;";
+            string query = "SELECT timestamp, temperature_inside, temperature_outside, humidity, pressure FROM Last24Hours ORDER BY timestamp DESC LIMIT 1;";
 
             using (var connection = new MySqlConnection(connectionString))
             {
@@ -33,10 +33,11 @@ namespace Projekt_Zaliczenie
                         {
                             if (await reader.ReadAsync()) // Asynchroniczny sposób odczytu wiersza
                             {
-                                TemperatureInsideTextBox.Text = $"{reader.GetDecimal("temperature_inside")} °C";
-                                TemperatureOutsideTextBox.Text = $"{reader.GetDecimal("temperature_outside")} °C";
-                                PressureTextBox.Text = $"{reader.GetDecimal("pressure")} hPa";
-                                HumidityTextBox.Text = $"{reader.GetDecimal("humidity")} %";
+                                DateTextBox.Text = reader.GetDateTime("timestamp").ToString("HH:mm:ss");
+                                TemperatureInsideTextBox.Text = $"{reader.GetDecimal("temperature_inside").ToString("0.#")}°C";
+                                TemperatureOutsideTextBox.Text = $"{reader.GetDecimal("temperature_outside").ToString("0.#")}°C";
+                                PressureTextBox.Text = $"{reader.GetDecimal("pressure").ToString("0.")} hPa";
+                                HumidityTextBox.Text = $"{reader.GetDecimal("humidity").ToString("0.")}%";
                             }
                         }
                     }

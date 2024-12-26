@@ -6,8 +6,8 @@
         xmlns:local="clr-namespace:Projekt_Zaliczenie"
         xmlns:mah="clr-namespace:MahApps.Metro.Controls;assembly=MahApps.Metro"
         mc:Ignorable="d"
-        Title="SkyLink" Height="450" Width="951"
-        MinHeight="410" MinWidth="951"
+        Title="SkyLink" Height="580" Width="950"
+        MinHeight="580" MinWidth="950"
         TitleCharacterCasing="Normal"
         Icon="/Images/logo.ico"
         ResizeMode="CanResizeWithGrip"
@@ -55,7 +55,7 @@
                 </Menu.ItemsPanel>
                 
                 <!--Menu aktualnej pogody-->
-                <MenuItem Header="Aktualna Pogoda"
+                <MenuItem x:Name="Header_AktualnaPogoda" Header="Aktualna Pogoda"
                           HorizontalContentAlignment="Center"
                           Background="#99FFFFFF"
                           Click="AktualnaPogoda_Click">
@@ -67,7 +67,7 @@
                 </MenuItem>
 
                 <!--Menu osi czasu-->
-                <MenuItem Header="Oś Czasu"
+                <MenuItem x:Name="Header_OsCzasu" Header="Oś Czasu"
                           HorizontalContentAlignment="Center"
                           Background="#99FFFFFF"
                           Click="OsCzasu_Click">
@@ -78,7 +78,7 @@
                     </MenuItem.Icon>
                 </MenuItem>
                 <!--Menu wykresów-->
-                <MenuItem Header="Wykresy"
+                <MenuItem x:Name="Header_Wykresy" Header="Wykresy"
                           HorizontalContentAlignment="Center"
                           Background="#99FFFFFF"
                           Click="Wykresy_Click">
@@ -89,7 +89,7 @@
                     </MenuItem.Icon>
                 </MenuItem>
                 <!--Menu trendów-->
-                <MenuItem Header="Trendy"
+                <MenuItem x:Name="Header_Trendy" Header="Trendy"
                           HorizontalContentAlignment="Center"
                           Background="#99FFFFFF"
                           Click="Trendy_Click">
@@ -100,7 +100,7 @@
                     </MenuItem.Icon>
                 </MenuItem>
                 <!--Menu opcji-->
-                <MenuItem Header="Opcje"
+                <MenuItem x:Name="Header_Opcje" Header="Opcje"
                           HorizontalContentAlignment="Center"
                           Background="#99FFFFFF"
                           Click="Opcje_Click">
