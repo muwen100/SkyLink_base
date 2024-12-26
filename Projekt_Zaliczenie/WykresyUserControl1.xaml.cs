@@ -97,7 +97,8 @@ namespace Projekt_Zaliczenie
                             WeatherChart.AxisY.Clear();
                             WeatherChart.AxisY.Add(new Axis
                             {
-                                Title = $"{displayName} ({unit})"
+                                Title = $"{displayName} ({unit})",
+                                LabelFormatter = value => value.ToString("F2")
                             });
                         }
                     }

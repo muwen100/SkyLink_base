@@ -39,12 +39,12 @@
             <Grid Height="50"
                   VerticalAlignment="Top"
                   Margin="0,30,0,0">
-                
-                <TextBlock Text="SkyLink"
+
+                <TextBlock
                            FontSize="25"
                            VerticalAlignment="Center"
                            HorizontalAlignment="Center"
-                           FontFamily="Lucida Console"/>
+                           FontFamily="Lucida Console"><Run Language="pl-pl" Text="S"/><Run Text="kyLink"/></TextBlock>
             </Grid>
 
             <Menu Height="480" Background="Transparent" Margin="0,15,0,0">
@@ -88,28 +88,7 @@
                                HorizontalAlignment="Left"/>
                     </MenuItem.Icon>
                 </MenuItem>
-                <!--Menu trendów-->
-                <MenuItem x:Name="Header_Trendy" Header="Trendy"
-                          HorizontalContentAlignment="Center"
-                          Background="#99FFFFFF"
-                          Click="Trendy_Click">
-                    <MenuItem.Icon>
-                        <Image Source="/Images/Trendy.png"
-                               Height="50" Stretch="Uniform"
-                               HorizontalAlignment="Left"/>
-                    </MenuItem.Icon>
-                </MenuItem>
-                <!--Menu opcji-->
-                <MenuItem x:Name="Header_Opcje" Header="Opcje"
-                          HorizontalContentAlignment="Center"
-                          Background="#99FFFFFF"
-                          Click="Opcje_Click">
-                    <MenuItem.Icon>
-                        <Image Source="/Images/Opcje.png"
-                               Height="50" Stretch="Uniform"
-                               HorizontalAlignment="Left"/>
-                    </MenuItem.Icon>
-                </MenuItem>
+               
             </Menu>
 
         </StackPanel>

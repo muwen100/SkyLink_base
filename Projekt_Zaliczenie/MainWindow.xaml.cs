@@ -84,27 +84,14 @@ namespace Projekt_Zaliczenie
             Header_Wykresy.Background = new SolidColorBrush((Color)ColorConverter.ConvertFromString("#87cfff"));
         }
 
-        private void Trendy_Click(object sender, RoutedEventArgs e)
-        {
-            MainContent.Content = new TrendyUserControl1();
-            ResetButtonBackgrounds();
-            Header_Trendy.Background = new SolidColorBrush((Color)ColorConverter.ConvertFromString("#87cfff"));
-        }
-
-        private void Opcje_Click(object sender, RoutedEventArgs e)
-        {
-            MainContent.Content = new OpcjeUserControl1();
-            ResetButtonBackgrounds();
-            Header_Opcje.Background = new SolidColorBrush((Color)ColorConverter.ConvertFromString("#87cfff"));
-        }
+     
 
         private void ResetButtonBackgrounds()
         {
             Header_AktualnaPogoda.Background = new SolidColorBrush(Colors.Transparent);
             Header_OsCzasu.Background = new SolidColorBrush(Colors.Transparent);
             Header_Wykresy.Background = new SolidColorBrush(Colors.Transparent);
-            Header_Trendy.Background = new SolidColorBrush(Colors.Transparent);
-            Header_Opcje.Background = new SolidColorBrush(Colors.Transparent);
+
         }
     }
 }
