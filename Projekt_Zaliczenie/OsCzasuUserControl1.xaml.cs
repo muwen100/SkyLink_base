@@ -21,7 +21,7 @@ namespace Projekt_Zaliczenie
     /// </summary>
     public partial class OsCzasuUserControl1 : UserControl
     {
-        private string connectionString = "Server=192.168.1.222;Database=weather_station;Uid=weather_user;Pwd=strong_password;";
+        private string connectionString = "Server=raspberrypi;Database=weather_station;Uid=weather_user;Pwd=strong_password;";
         public OsCzasuUserControl1()
         {
             InitializeComponent();

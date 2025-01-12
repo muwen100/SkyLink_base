@@ -8,7 +8,7 @@ namespace Projekt_Zaliczenie
     public partial class AktualnaPogodaUserControl1 : UserControl
     {
         // Zmieniamy connection string na używający MySqlConnector
-        private string connectionString = "Server=192.168.1.222;Database=weather_station;Uid=weather_user;Pwd=strong_password;";
+        private string connectionString = "Server=raspberrypi;Database=weather_station;Uid=weather_user;Pwd=strong_password;";
 
         public AktualnaPogodaUserControl1()
         {
