@@ -9,7 +9,7 @@ using System.Threading.Tasks;
 using System.Windows;
 using System.Windows.Controls;
 using System.Windows.Data;
-using System.Windows.Documents;
+using System.Windows.Documents;     
 using System.Windows.Input;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
@@ -18,25 +18,23 @@ using System.Windows.Shapes;
 
 namespace Projekt_Zaliczenie
 {
-    /// <summary>
-    /// Logika interakcji dla klasy WykresyUserControl1.xaml
-    /// </summary>
     public partial class WykresyUserControl1 : UserControl
     {
         private string connectionString = "Server=raspberrypi;Database=weather_station;Uid=weather_user;Pwd=strong_password;";
+
         private Dictionary<string, (string ColumnName, string DisplayName, string Unit)> categoryMap = new Dictionary<string, (string, string, string)>
             {
                 { "Temperatura wewnętrzna", ("temperature_inside", "Temperatura wewnętrzna", "°C") },
                 { "Temperatura zewnętrzna", ("temperature_outside", "Temperatura zewnętrzna", "°C") },
                 { "Wilgotność", ("humidity", "Wilgotność", "%") },
-                { "Ciśnienie", ("pressure", "Ciśnienie", "hPa") }
+                { "Ciśnienie", ("pressure", "Ciśnienie", "hPa") }  //klucz, wartość (kolumna, nazwa, jednostka)
             };
 
         public WykresyUserControl1()
         {
             InitializeComponent();
             CategoryComboBox.SelectedIndex = 1; // Ustawienie domyślnie wybranej pozycji
-            LoadWeatherChartData("temperature_outside", "Temperatura zewnętrzna", "°C"); // Domyślna kategoria
+           // LoadWeatherChartData("temperature_outside", "Temperatura zewnętrzna", "°C"); // Domyślna kategoria
         }
 
         public async void LoadWeatherChartData(string columnName, string displayName, string unit)
@@ -69,16 +67,16 @@ namespace Projekt_Zaliczenie
 
                         using (var reader = await command.ExecuteReaderAsync())
                         {
-                            var values = new ChartValues<double>();
-                            var labels = new List<string>();
+                            var values = new ChartValues<double>(); // Lista wartości oś Y
+                            var labels = new List<string>(); // Lista etykiet oś X
 
                             while (await reader.ReadAsync())
                             {
-                                values.Add(Math.Round(reader.GetDouble("avg_value"), 2));
-                                labels.Add(reader.GetString("time_group"));
+                                values.Add(Math.Round(reader.GetDouble("avg_value"), 2)); // Dodanie wartości do listy
+                                labels.Add(reader.GetString("time_group")); // Dodanie etykiety do listy
                             }
 
-                            WeatherChart.Series = new SeriesCollection
+                            WeatherChart.Series = new SeriesCollection // Ustawienie serii wykresu
                                 {
                                     new LineSeries
                                     {
@@ -98,7 +96,7 @@ namespace Projekt_Zaliczenie
                             WeatherChart.AxisY.Add(new Axis
                             {
                                 Title = $"{displayName} ({unit})",
-                                LabelFormatter = value => value.ToString("F2")
+                                LabelFormatter = value => value.ToString("F1") 
                             });
                         }
                     }

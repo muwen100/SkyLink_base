@@ -16,9 +16,7 @@ using System.Windows.Shapes;
 
 namespace Projekt_Zaliczenie
 {
-    /// <summary>
-    /// Logika interakcji dla klasy OsCzasuUserControl1.xaml
-    /// </summary>
+   
     public partial class OsCzasuUserControl1 : UserControl
     {
         private string connectionString = "Server=raspberrypi;Database=weather_station;Uid=weather_user;Pwd=strong_password;";
@@ -37,25 +35,25 @@ namespace Projekt_Zaliczenie
                 return;
             }
 
-            DateTime selectedDate = datownik.SelectedDate.Value;
-            string query = "SELECT avg_temp_inside, avg_temp_outside, avg_humidity, avg_pressure FROM Last31Days WHERE DATE(timestamp) = @selectedDate ORDER BY timestamp DESC LIMIT 1;";
+            DateTime selectedDate = datownik.SelectedDate.Value; //wybrana data z kalendarza
+            string query = "SELECT avg_temp_inside, avg_temp_outside, avg_humidity, avg_pressure FROM Last31Days WHERE DATE(timestamp) = @selectedDate ORDER BY timestamp DESC LIMIT 1;"; // Zapytanie SQL
 
-            using (var connection = new MySqlConnection(connectionString))
+            using (var connection = new MySqlConnection(connectionString)) //using na początk, żeby połączenie było zamykane po wyjściu
             {
                 try
                 {
-                    await connection.OpenAsync(); // Używamy asynchronicznego otwarcia połączenia
+                    await connection.OpenAsync(); // łączenie asynchroniczne, żeby nie blokować interfejsu
                     //MessageBox.Show("Połączenie z bazą danych powiodło się!");
 
                     using (var command = new MySqlCommand(query, connection))
                     {
                         command.Parameters.AddWithValue("@selectedDate", selectedDate.ToString("yyyy-MM-dd"));
 
-                        using (var reader = await command.ExecuteReaderAsync()) // Używamy asynchronicznego odczytu
+                        using (var reader = await command.ExecuteReaderAsync()) // odczyt asynchroniczny
                         {
-                            if (await reader.ReadAsync()) // Asynchroniczny sposób odczytu wiersza
+                            if (await reader.ReadAsync()) 
                             {
-                                TemperatureIAvgTextBox.Text = $"{reader.GetDecimal("avg_temp_inside").ToString("0.0")}°C";
+                                TemperatureIAvgTextBox.Text = $"{reader.GetDecimal("avg_temp_inside").ToString("0.0")}°C"; // odczytanie wartości deimal i zapisanie do stringa z jednym miejscem po przecinku
                                 TemperatureOAvgTextBox.Text = $"{reader.GetDecimal("avg_temp_outside").ToString("0.0")}°C";
                                 PressureAvgTextBox.Text = $"{reader.GetDecimal("avg_pressure").ToString("0.0")} hPa";
                                 HumidityAvgTextBox.Text = $"{reader.GetDecimal("avg_humidity").ToString("0.0")}%";

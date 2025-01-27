@@ -1,13 +1,13 @@
 ﻿using System;
 using System.Windows;
 using System.Windows.Controls;
-using MySqlConnector;  // Importujemy MySqlConnector
+using MySqlConnector;  
 
 namespace Projekt_Zaliczenie
 {
     public partial class AktualnaPogodaUserControl1 : UserControl
     {
-        // Zmieniamy connection string na używający MySqlConnector
+        
         private string connectionString = "Server=raspberrypi;Database=weather_station;Uid=weather_user;Pwd=strong_password;";
 
         public AktualnaPogodaUserControl1()
@@ -24,14 +24,14 @@ namespace Projekt_Zaliczenie
             {
                 try
                 {
-                    await connection.OpenAsync(); // Używamy asynchronicznego otwarcia połączenia
+                    await connection.OpenAsync(); // otwarcie połączenia asynchronicznie
                     //MessageBox.Show("Połączenie z bazą danych powiodło się!");
 
                     using (var command = new MySqlCommand(query, connection))
                     {
-                        using (var reader = await command.ExecuteReaderAsync()) // Używamy asynchronicznego odczytu
+                        using (var reader = await command.ExecuteReaderAsync()) // Uodczyt asynchroniczny 
                         {
-                            if (await reader.ReadAsync()) // Asynchroniczny sposób odczytu wiersza
+                            if (await reader.ReadAsync()) // odczyty wierszy asynchroniczne 
                             {
                                 DateTextBox.Text = reader.GetDateTime("timestamp").ToString("HH:mm:ss");
                                 TemperatureInsideTextBox.Text = $"{reader.GetDecimal("temperature_inside").ToString("0.#")}°C";
