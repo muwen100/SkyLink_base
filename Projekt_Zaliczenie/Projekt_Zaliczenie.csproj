@@ -214,6 +214,7 @@
   </ItemGroup>
   <ItemGroup>
     <Resource Include="Images\Aktualna_Pogoda.png" />
+    <Resource Include="adnotacja.txt" />
     <Content Include="Images\logo.ico">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
