@@ -1,0 +1,126 @@
+﻿<UserControl x:Class="Projekt_Zaliczenie.AktualnaPogodaUserControl1"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:local="clr-namespace:Projekt_Zaliczenie"
+             mc:Ignorable="d" 
+             d:DesignHeight="450" d:DesignWidth="800">
+    <Grid x:Name="background" Background="White">
+        <!--
+        Grid 0,0 to Pasek z guzikiem
+        Grid 1,0 to Temperatura
+        Grid 1,1 to Ciśnienie
+        Grid 2,0 to Wilgotność
+        Grid 2,1 to Jakość Powietrza
+        -->
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="1*"/>
+            <RowDefinition Height="1*"/>
+        </Grid.RowDefinitions>
+
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="1*"/>
+            <ColumnDefinition Width="1*"/>
+        </Grid.ColumnDefinitions>
+
+        <!-- Pasek z guzikiem -->
+        <StackPanel Grid.Row="0" Grid.ColumnSpan="2" Orientation="Horizontal" HorizontalAlignment="Left" Margin="10">
+            <Button Content="Odśwież" Click="Button_Click_1"/>
+        </StackPanel>
+
+        <Rectangle Grid.Row="1"
+                   Grid.Column="0"
+                   Margin="15,10,15,15"
+                   RadiusX="15" RadiusY="15">
+            <Rectangle.Fill>
+                <SolidColorBrush Color="AliceBlue" Opacity="0.9"/>
+            </Rectangle.Fill>
+        </Rectangle>
+
+        <Rectangle Grid.Row="2"
+           Grid.Column="0"
+           Margin="15,10,15,15"
+           RadiusX="15" RadiusY="15">
+            <Rectangle.Fill>
+                <SolidColorBrush Color="AliceBlue" Opacity="0.9"/>
+            </Rectangle.Fill>
+        </Rectangle>
+
+        <Rectangle Grid.Row="1"
+           Grid.Column="1"
+           Margin="15,10,15,15"
+           RadiusX="15" RadiusY="15">
+            <Rectangle.Fill>
+                <SolidColorBrush Color="AliceBlue" Opacity="0.9"/>
+            </Rectangle.Fill>
+        </Rectangle>
+
+        <Rectangle Grid.Row="2"
+           Grid.Column="1"
+           Margin="15,10,15,15"
+           RadiusX="15" RadiusY="15">
+            <Rectangle.Fill>
+                <SolidColorBrush Color="AliceBlue" Opacity="0.9"/>
+            </Rectangle.Fill>
+        </Rectangle>
+
+        <TextBlock Grid.Row="1" Grid.Column="0"
+                   HorizontalAlignment="Center"
+                   VerticalAlignment="Top"
+                   FontSize="24"
+                   Margin="0,10,0,0"><Run Text="Temperatura"/><Run Text=" wewnątrz"/><Run Language="pl-pl" Text="na"/></TextBlock>
+
+        <TextBlock Grid.Row="2" Grid.Column="0"
+                   HorizontalAlignment="Center"
+                   FontSize="24"
+                   VerticalAlignment="Top"
+                   Margin="0,10,0,0"><Run Text="Temperatura zewnątrz"/><Run Language="pl-pl" Text="na"/></TextBlock>
+
+        <TextBlock Grid.Row="1" Grid.Column="1"
+                   HorizontalAlignment="Center"
+                   FontSize="24"
+                   Margin="0,10,0,0"
+                   VerticalAlignment="Top">
+            Ciśnienie
+        </TextBlock>
+
+        <TextBlock Grid.Row="2" Grid.Column="1"
+                   HorizontalAlignment="Center"
+                   VerticalAlignment="Top"
+                   FontSize="24"
+                   Margin="0,10,0,0"><Run Language="pl-pl" />Wilgotność</TextBlock>
+
+        <TextBlock x:Name="TemperatureInsideTextBox"  Grid.Row="1" Grid.Column="0"
+             TextWrapping="Wrap"
+             FontSize="72"
+             TextAlignment="Center"
+             HorizontalAlignment="Center" VerticalAlignment="Center"
+             />
+
+        <TextBlock x:Name="PressureTextBox" Grid.Row="1" Grid.Column="1"
+             TextWrapping="Wrap"
+             FontSize="72"
+             TextAlignment="Center"
+             HorizontalAlignment="Center"
+            VerticalAlignment="Center"
+            />
+
+        <TextBlock x:Name="TemperatureOutsideTextBox" Grid.Row="2" Grid.Column="0"
+       TextWrapping="Wrap"
+       FontSize="72"
+       TextAlignment="Center"
+       HorizontalAlignment="Center"
+      VerticalAlignment="Center"
+      />
+        <TextBlock x:Name="HumidityTextBox" Grid.Row="2" Grid.Column="1"
+       TextWrapping="Wrap"
+       FontSize="72"
+       TextAlignment="Center"
+       HorizontalAlignment="Center"
+      VerticalAlignment="Center"
+      />
+        <TextBlock x:Name="DateTextBox" Margin="80,13,0,9" TextWrapping="Wrap" Text="data" HorizontalAlignment="Left" Width="120" FontSize="14" Height="25"/>
+    </Grid>
+</UserControl>

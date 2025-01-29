@@ -1,0 +1,4 @@
+Projekt ten jest projektem zaliczeniowym na przedmiot Programowanie Obiektowe C#
+Autor: Szymon Staudt
+Wydział: IMiR
+Data zdania sprawozdania: 29.01.2025
